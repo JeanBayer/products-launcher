@@ -38,13 +38,21 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=${ORDERS_DB_PG_USER}
       - POSTGRES_PASSWORD=123456
-      - POSTGRES_DB=ordersdb
+      - POSTGRES_DB=${ORDERS_DB_PG_NAME}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${ORDERS_DB_PG_USER} -d ${ORDERS_DB_PG_NAME}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
 
   orders-ms:
     depends_on:
-      - orders-db
+      orders-db:
+        condition: service_healthy
+        restart: true
     build: ./orders-ms
     ports:
       - "3002:3002"
