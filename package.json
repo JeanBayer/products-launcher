@@ -9,6 +9,7 @@
     "init:submodule": "git submodule update --init --recursive",
     "init:update-submodule": "git submodule update --remote",
     "dev": "concurrently \"npm:dev:*\"",
+    "dev:env-launcher": ".env.example .env",
     "dev:install-deps-client": "cd client-gateway && cp .env.example .env && npm install",
     "dev:install-deps-orders": "cd orders-ms && cp .env.example .env && npm install",
     "dev:install-deps-products": "cd products-ms && cp .env.example .env && npm install",
