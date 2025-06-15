@@ -1,3 +1,9 @@
+### Pasos para ejecutar el proyecto
+
+1. Ejecutar `npm install` para instalar las dependencias
+2. Si es la primera vez que clonas el proyecto ejecuta `npm run init` el cual va a traer los submodulos al proyecto
+3. Para poner en funcionamiento el proyecto ejecuta `npm run dev` el cual instala las dependencias en cada proyecto, copia el .env.example y al final ejecuta docker-compose para que las apps funcionen.
+
 ### Pasos para crear los Git Submodules
 
 1. Crear un nuevo repositorio en GitHub

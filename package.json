@@ -1,0 +1,31 @@
+{
+  "name": "products-launcher",
+  "version": "1.0.0",
+  "description": "1. Crear un nuevo repositorio en GitHub 2. Clonar el repositorio en la máquina local 3. Añadir el submodule, donde `repository_url` es la url del repositorio y `directory_name` es el nombre de la carpeta donde quieres que se guarde el sub-módulo (no debe de existir en el proyecto)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "concurrently \"npm:init:*\"",
+    "init:submodule": "git submodule update --init --recursive",
+    "init:update-submodule": "git submodule update --remote",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:install-deps-client": "cd client-gateway && cp .env.example .env && npm install",
+    "dev:install-deps-orders": "cd orders-ms && cp .env.example .env && npm install",
+    "dev:install-deps-products": "cd products-ms && cp .env.example .env && npm install",
+    "dev:run-apps": "docker compose up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanBayer/products-launcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanBayer/products-launcher/issues"
+  },
+  "homepage": "https://github.com/JeanBayer/products-launcher#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
