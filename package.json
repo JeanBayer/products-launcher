@@ -8,11 +8,12 @@
     "init": "concurrently \"npm:init:*\"",
     "init:submodule": "git submodule update --init --recursive",
     "init:update-submodule": "git submodule update --remote",
+    "init:env-launcher": "[ -f .env ] || cp .env.example .env",
+    "init:install-deps-client": "cd client-gateway && [ -f .env ] || cp .env.example .env && npm install",
+    "init:install-deps-orders": "cd orders-ms && [ -f .env ] || cp .env.example .env && npm install",
+    "init:install-deps-products": "cd products-ms && [ -f .env ] || cp .env.example .env && npm install",
+    "init:install-deps-payments": "cd payments-ms && [ -f .env ] || cp .env.example .env && npm install",
     "dev": "concurrently \"npm:dev:*\"",
-    "dev:env-launcher": ".env.example .env",
-    "dev:install-deps-client": "cd client-gateway && cp .env.example .env && npm install",
-    "dev:install-deps-orders": "cd orders-ms && cp .env.example .env && npm install",
-    "dev:install-deps-products": "cd products-ms && cp .env.example .env && npm install",
     "dev:run-apps": "docker compose up --build"
   },
   "repository": {
