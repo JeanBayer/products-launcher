@@ -7,3 +7,6 @@
 [submodule "products-ms"]
 	path = products-ms
 	url = git@github.com:JeanBayer/products-ms.git
+[submodule "payments-ms"]
+	path = payments-ms
+	url = git@github.com:JeanBayer/payments-ms.git
