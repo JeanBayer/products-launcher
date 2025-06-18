@@ -81,3 +81,4 @@ services:
       - STRIPE_CANCEL_URL=http://localhost:3003/payments/cancel
       - STRIPE_SECRET=${PAYMENTS_STRIPE_SECRET}
       - STRIPE_WEBHOOK_SECRET=${PAYMENTS_STRIPE_WEBHOOK_SECRET}
+      - NATS_SERVERS=nats://nats-server:4222
