@@ -16,6 +16,7 @@ services:
     environment:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
+      - JWT_SECRET=${JWT_SECRET}
 
   products-ms:
     build: ./products-ms
