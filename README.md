@@ -42,12 +42,50 @@ Si se trabaja en el repositorio que tiene los sub-módulos, **primero actualizar
 Si se hace al revés, se perderán las referencias de los sub-módulos en el repositorio principal y tendremos que resolver conflictos.
 
 ## Para prod
+
 1. comando para construir la imagen:
+
 ```
 docker compose -f docker-compose.prod.yml build
 ```
 
 2. comando para ejecutar las imagenes
+
 ```
 docker compose -f docker-compose.prod.yml up
+```
+
+## Pasos para desplegar en docker hub
+
+1. Crear repositorio en Docker Hub
+2. Iniciar sesión en Docker Hub desde la terminal:
+
+```
+docker login
+```
+
+3. Construir la imagen:
+
+```
+docker build -f dockerfile.prod -t <your_dockerhub_username>/<your_dockerhub_repository>:<tag> .
+```
+
+4. Subir la imagen al repositorio de Docker Hub:
+
+```
+docker push <your_dockerhub_username>/<your_dockerhub_repository>:<tag>
+```
+
+## Pasos para desplegar en google cloud
+
+1. Construir la imagen:
+
+```
+docker build -f dockerfile.prod -t southamerica-west1-docker.pkg.dev/secret-drake-463714-u5/image-registry/auth-ms .
+```
+
+2. Subir la imagen:
+
+```
+docker push southamerica-west1-docker.pkg.dev/secret-drake-463714-u5/image-registry/auth-ms
 ```
